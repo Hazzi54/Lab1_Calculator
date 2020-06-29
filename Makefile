@@ -1,6 +1,9 @@
 .PHONY: clean
 
-all: build main prog_test
+all: build main test
+
+test: build prog_test
+	./prog_test
 
 main: build/main.o build/add.o build/sub.o build/mul.o build/div.o
 	gcc -Wall -Werror build/main.o build/add.o build/sub.o build/mul.o build/div.o -o main
